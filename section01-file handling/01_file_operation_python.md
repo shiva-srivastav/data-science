@@ -1,5 +1,3 @@
-**Section 1: File Handling in Python**
-
 ## Topic 1: File Operations in Python
 
 ### Introduction
@@ -23,16 +21,59 @@ The major operations that can be performed on a file include:
 | `'b'` | Binary mode |
 | `'t'` | Text mode (default) |
 
-### Example: Reading and Writing to a File
+### Example: Opening and Closing a File
 ```python
-# Writing to a file
+file = open("example.txt", "w")  # Open file in write mode
+file.close()  # Close the file
+```
+
+### Example: Writing to a File
+```python
 with open("example.txt", "w") as file:
     file.write("Hello, Python File Handling!")
+```
 
-# Reading from a file
+### Example: Reading from a File
+```python
 with open("example.txt", "r") as file:
     content = file.read()
     print(content)
+```
+
+### Example: Reading a File Line by Line
+```python
+with open("example.txt", "r") as file:
+    for line in file:
+        print(line.strip())  # Strip removes newline characters
+```
+
+### Example: Using `readline()` to Read One Line at a Time
+```python
+with open("example.txt", "r") as file:
+    line1 = file.readline()
+    line2 = file.readline()
+    print(line1, end='')
+    print(line2, end='')
+```
+
+### Example: Using `readlines()` to Read All Lines as a List
+```python
+with open("example.txt", "r") as file:
+    lines = file.readlines()
+    print(lines)  # Outputs a list of lines
+```
+
+### Example: Appending to a File
+```python
+with open("example.txt", "a") as file:
+    file.write("\nAppending this line.")
+```
+
+### Example: Writing Multiple Lines using `writelines()`
+```python
+lines = ["Line 1\n", "Line 2\n", "Line 3\n"]
+with open("example.txt", "w") as file:
+    file.writelines(lines)
 ```
 
 ### Mermaid Diagram
@@ -43,3 +84,5 @@ graph TD;
     A -->|Append| D[Append Operations];
     A -->|Close| E[Close File];
 ```
+
+ 
